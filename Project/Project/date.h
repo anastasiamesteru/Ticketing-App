@@ -3,7 +3,7 @@
 #include <string>
 using namespace std;
 
-enum class month
+class month
 {
 	JANUARY = 1,
 	FEBRUARY,
