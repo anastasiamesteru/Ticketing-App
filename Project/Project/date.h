@@ -1,9 +1,8 @@
 #pragma once
 #include <iostream>
-#include <string>
 using namespace std;
 
-class month
+enum class Month
 {
 	JANUARY = 1,
 	FEBRUARY,
@@ -25,29 +24,34 @@ private:
 
 	unsigned int minutes = 0;
 	unsigned int hour = 0;
-	//month month = JANUARY;??
 	unsigned int day = 0;
+	Month Month = JANUARY;
 	unsigned int year = 2010;
 
-	static const int MAX_YEAR = 2050;
+	static const int max_year = 2050;
 
-	// Setters
+	// Setters 
 
 	void setMinutes(unsigned int minutes);
 	void setHour(unsigned int hour);
-	void setMonth(month month);
-	void setYear(unsigned int year);
 	void setDay(unsigned int day);
-
-
+	void setMonth(Month month);
+	void setYear(unsigned int year);
+	
 public:
 
 	// Getters
 
-	unsigned int getMinutes();
-	unsigned int getHour();
-	month getMonth();
-	unsigned int getYear();
-	unsigned int getDay();
+	int getMinutes();
+	int getHour();
+	Month getMonth();
+	int getYear();
+	int getDay();
+
+	// Constructors
+
+	Date(); // default constructor
+	Date(unsigned int minutes, unsigned int hour, unsigned int day, Month month, unsigned int year); // constructor with parameters
 
 };
+
