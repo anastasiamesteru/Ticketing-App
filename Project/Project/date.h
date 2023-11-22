@@ -25,7 +25,7 @@ private:
 	unsigned int minutes = 0;
 	unsigned int hour = 0;
 	unsigned int day = 0;
-	Month Month = JANUARY;
+	Month Month = Month :: JANUARY;
 	unsigned int year = 2010;
 
 	static const int max_year = 2050;

@@ -22,7 +22,7 @@ public:
 	//Getters
 
 	int getSeatNumber();
-	int getSeatType();
+	SeatType getSeatType();
 
 	//Constructors
 
