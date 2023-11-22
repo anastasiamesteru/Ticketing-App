@@ -11,6 +11,6 @@ void setSeatNumber(unsigned int SeatNumber)
 }
 void setType(SeatType)
 {
-	//if (SeatType = FREE)
+	//if (SeatType = FREE)?????
 }
 
