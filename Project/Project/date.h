@@ -44,9 +44,10 @@ public:
 
 	int getMinutes();
 	int getHour();
+	int getDay();
 	Month getMonth();
 	int getYear();
-	int getDay();
+
 
 	// Constructors
 

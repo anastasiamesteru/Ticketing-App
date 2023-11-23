@@ -3,14 +3,15 @@
 using namespace std;
 
 enum class SeatType {FREE, RESERVED};
+enum class SeatType2 {NORMAL,VIP};
 
 class Seat
 {
 private:
 	unsigned int SeatNumber = 0;
 	SeatType type = FREE;
-
-	unsigned int TotalSeats = 0;
+	SeatType2 type = NORMAL;
+	unsigned int totalseats = 0;
 
 	// Setters
 

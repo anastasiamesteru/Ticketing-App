@@ -2,7 +2,7 @@
 #include <iostream>
 #include <string>
 
-class Event
+class Show
 
 {
 private:
