@@ -12,7 +12,7 @@ private:
 	unsigned int ticketnumber = 0;
 	Show* show;
 	bool validity = false; ? ?
-
+		
 		// Setters
 	void setShow(Show * show);
 	void setTicketNumber(unsigned int ticketnumber);
