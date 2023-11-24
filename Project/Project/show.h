@@ -8,7 +8,7 @@ class Show
 private:
 	unsigned int event.numnber = 0;
 	char* name = nullptr;
-	//??unsigned int starttime = 0;
+	??Date* starttime = 0;
 	unsigned int duration = 0;
 
 
@@ -16,7 +16,7 @@ private:
 
 	void setEventNumber(unsigned int event.numnber);
 	char* setName(char* name);
-	//void setStartTime();
+	? ? setStartTime(Date * starttime);
 	void setDuration(unsigned int duration);
 
 

@@ -9,14 +9,16 @@ class Seat
 {
 private:
 	unsigned int SeatNumber = 0;
-	SeatType type = FREE;
-	SeatType2 type = NORMAL;
-	unsigned int totalseats = 0;
+	SeatType type = SeatType::FREE;
+	SeatType2 type2 = SeatType::NORMAL;
+
 
 	// Setters
 
 	void setSeatNumber(unsigned int SeatNumber);
 	void setType(SeatType);
+	void setType2(SeatType2);
+	
 
 public:
 
@@ -24,10 +26,14 @@ public:
 
 	int getSeatNumber();
 	SeatType getSeatType();
+	SeatType2  getSeatType2();
 
 	//Constructors
 
 	Seat(); // default constructor
-	Seat(unsigned int SeatNumber, SeatType type); //    Constructor with 2 parameters
+	Seat(unsigned int SeatNumber, SeatType type, SeatType type, SeatType2 type2); //    Constructor with 2 parameters
 	
+	//Destructor
+	~Seat();
+
 }
