@@ -42,7 +42,7 @@ SeatType2 Seat::getSeatType2()
 
 // Constructors
 
-Seat::Seat() {}
+Seat::Seat() { }
 
 Seat::Seat(unsigned int SeatNumber, SeatType type, SeatType type, SeatType2 type2)
 {
@@ -50,8 +50,4 @@ Seat::Seat(unsigned int SeatNumber, SeatType type, SeatType type, SeatType2 type
 	this->setType(type);
 	this->setType2(type2);
 }
-
-// Destructor
-
-Seat::~Seat() { }
 

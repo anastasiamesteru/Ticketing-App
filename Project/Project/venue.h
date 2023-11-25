@@ -1,5 +1,7 @@
 #pragma once
 #include <iostream>
+#include <show.h>
+
 using namespace std;
 
 class Venue
@@ -10,17 +12,18 @@ private:
 	char* adress = nullptr;
 	unsigned int noofrows = 0;
 	unsigned int noofcolumns = 0;
-	unsigned int totalseats = 0;
+	//unsigned int totalseats = 0;
+	Show** shows = nullptr;
 
 	
 	//Setters
 	
-	void setName( const char* name);
+	void setName(const char* name);
 	void setAdress(const char* adress;
 	void setNoofRows(unsigned int noofrows);
 	void setNoofColumns(unsigned int noofcolumns);
 	void setTotalSeats(unsigned int totalseats);
-	
+	void setShow(Show** shows);
 
 public:
 	
@@ -30,14 +33,15 @@ public:
 	char* getAdress();
 	int getNoofRows();
 	int getNoofColumns();
+	Show** getShow();
 
 	//Constructors
 
-	Venue();
-	Venue(char* name, char* adress, unsigned int noofrows, unsigned int noofcolumns, unsigned int totalseats);
+	Venue(); //default constructor
+	Venue(const char* name,const char* adress, unsigned int noofrows, unsigned int noofcolumns, unsigned int totalseats); //constructor with parameters
+	Venue(const Venue& newVenue);
 
 	// Destructor
-
 	~Venue();
 
 

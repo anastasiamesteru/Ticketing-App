@@ -73,5 +73,17 @@ Date::Date(unsigned int minutes, unsigned int hour, unsigned int day, Month mont
 
 }
 
+//Operators
 
+ostream& operator << (ostream& out, const Date& date)
+
+{
+	out << date.minutes << "/" << date.hour << "/" << date.day << "/" << date.month << "/" << date.year;
+}
+
+istream& operator >> (istream& in, Date& date)
+
+{
+	in >> date.minutes >> date.hour >> date.day >> date.month >> date.year;
+}
 

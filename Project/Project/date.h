@@ -53,6 +53,30 @@ public:
 
 	Date(); // default constructor
 	Date(unsigned int minutes, unsigned int hour, unsigned int day, Month month, unsigned int year); // constructor with parameters
+	
+	//Operators
+
+	ostream& operator << (ostream& out, const Date& date);
+	istream& operator >> (istream& in, Date& date);
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 };
 

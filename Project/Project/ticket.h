@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <show.h>
 using namespace std;
 
 enum class TicketType { NORMAL, VIP };
@@ -10,13 +11,14 @@ class Ticket
 {
 private:
 	unsigned int ticketnumber = 0;
+	float ticketprice????
 	Show* show;
-	bool validity = false; ? ?
+
 		
-		// Setters
-	void setShow(Show * show);
+	// Setters
+	void setShow(Show* show);
 	void setTicketNumber(unsigned int ticketnumber);
-	void setValidity(bool validity);
+	
 
 
 public: 
@@ -24,9 +26,15 @@ public:
 	// Getters
 	Show* getShow();
 	int getTicketNumber();
-	int getValidity(;
+
+	//Constructors
 
 	Ticket(); //default constructor
+	Ticket(Show* show,unsigned int ticketnumber,); //constructor with parameters
+	Ticket(const Ticket& newTicket); //copy constructor
+
+	//Destructor
+	~Ticket();
 
 
 
