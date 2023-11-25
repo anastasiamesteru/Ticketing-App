@@ -78,7 +78,13 @@ Venue::Venue(const char* name, const char* adress, unsigned int noofrows, unsign
 
 }
 
+ostream& Venue::operator<<(ostream& out, const Venue& date)
+{
+	// TODO: insert return statement here
+}
 
+
+//Operators
 
 
 

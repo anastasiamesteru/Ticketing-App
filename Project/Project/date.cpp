@@ -87,3 +87,4 @@ istream& operator >> (istream& in, Date& date)
 	in >> date.minutes >> date.hour >> date.day >> date.month >> date.year;
 }
 
+

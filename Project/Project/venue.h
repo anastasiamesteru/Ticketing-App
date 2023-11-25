@@ -44,7 +44,10 @@ public:
 	// Destructor
 	~Venue();
 
+	//Operators
 
+	ostream& operator << (ostream& out, const Venue& venue);
+	istream& operator >> (istream& in, Venue& venue);
 
-
+	Venue operator = (const Venue& venue));
 };

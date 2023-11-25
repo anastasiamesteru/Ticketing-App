@@ -38,4 +38,9 @@ public:
 
 	//Destructor
 	~Show();
+
+	//Operators
+
+	ostream& operator << (ostream& out, const Show& show);
+	istream& operator >> (istream& in, Show& show);
 };

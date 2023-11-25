@@ -34,4 +34,9 @@ public:
 	Seat(); // default constructor
 	Seat(unsigned int SeatNumber, SeatType type, SeatType2 type2); //    Constructor with 3 parameters
 	
+	//Operators
+
+	ostream& operator << (ostream& out, const Seat& seat);
+	istream& operator >> (istream& in, Seat& seat);
+
 }
