@@ -16,6 +16,8 @@ private:
 	TicketType type = TicketType::NORMAL;
 	TicketPayMethod paymethod = TicketPayMethod::CASH;
 		
+		static char* randomnumber();
+
 	// Setters
 	void setShow(Show* show);
 	void setTicketNumber(unsigned int ticketnumber);
@@ -45,13 +47,15 @@ public:
 
 	//Operators
 
-	ostream& operator << (ostream& out, const Ticket& ticket);
-	istream& operator >> (istream& in, Ticket& ticket);
+	ostream& operator << (ostream& out, const Ticket& newticket);
+	istream& operator >> (istream& in, Ticket& newticket);
 
-	Ticket operator = (const Ticket& ticket);
+	Ticket operator = (const Ticket& newticket);
 
+	explicit operator string();
 
-
+	bool operator == (const Ticket& newticket);
+	bool operator != (const Ticket& newticket);
 }
 
 

@@ -73,18 +73,68 @@ Date::Date(unsigned int minutes, unsigned int hour, unsigned int day, Month mont
 
 }
 
+
+
 //Operators
 
-ostream& operator << (ostream& out, const Date& date)
+ostream& operator << (ostream& out, const Date& newdate)
 
 {
-	out << date.minutes << "/" << date.hour << "/" << date.day << "/" << date.month << "/" << date.year;
+	out << newdate.minutes << "/" << newdate.hour << "/" << newdate.day << "/" << newdate.month << "/" << newdate.year;
+	return out;
 }
 
-istream& operator >> (istream& in, Date& date)
+istream& operator >> (istream& in, Date& newdate)
 
 {
-	in >> date.minutes >> date.hour >> date.day >> date.month >> date.year;
+	in >> newdate.minutes >> newdate.hour >> newdate.day >> newdate.month >> newdate.year;
+	return in;
 }
+
+Date::operator string()
+{
+	stringstream ss;
+	ss<<minutes << "/" << hour << "/" << day << "/" << month << "/" << year;
+	return ss.str();
+}
+
+bool Date::operator==(const Date& newdate)
+{
+	if (this == newdate) return true;
+	if (this->minutes != newdate.minutes) return false;
+	if (this->hour != newdate.hour) return false;
+	if (this->day != newdate.day) return false;
+	if (this->month != newdate.month) return false;
+	if (this->year != newdate.year) return false;
+	return true;
+}
+
+bool Date::operator!=(const Date& newdate)
+{
+	return !(*this == newdate);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

@@ -12,8 +12,9 @@ private:
 	char* adress = nullptr;
 	unsigned int noofrows = 0;
 	unsigned int noofcolumns = 0;
-	//unsigned int totalseats = 0;
+	unsigned int totalseats = 0;
 	Show** shows = nullptr;
+	unsigned int ongoingshows = 0;
 
 	
 	//Setters
@@ -24,6 +25,7 @@ private:
 	void setNoofColumns(unsigned int noofcolumns);
 	void setTotalSeats(unsigned int totalseats);
 	void setShow(Show** shows);
+	void setOngoingShows(unsigned int ongoingshows = 0);
 
 public:
 	
@@ -33,12 +35,14 @@ public:
 	char* getAdress();
 	int getNoofRows();
 	int getNoofColumns();
+	int getTotalSeats();
 	Show** getShow();
+	int getOngoingShows();
 
 	//Constructors
 
 	Venue(); //default constructor
-	Venue(const char* name,const char* adress, unsigned int noofrows, unsigned int noofcolumns, unsigned int totalseats); //constructor with parameters
+	Venue(const char* name,const char* adress, unsigned int noofrows, unsigned int noofcolumns, unsigned int totalseats, Show** shows, unsigned int ongoingshows); //constructor with parameters
 	Venue(const Venue& newVenue);
 
 	// Destructor
@@ -46,8 +50,18 @@ public:
 
 	//Operators
 
-	ostream& operator << (ostream& out, const Venue& venue);
-	istream& operator >> (istream& in, Venue& venue);
+	ostream& operator << (ostream& out, const Venue& newvenue);
+	istream& operator >> (istream& in, Venue& newvenue);
 
-	Venue operator = (const Venue& venue));
+	Venue operator = (const Venue& newvenue);
+
+	explicit operator string();
+	
+	bool operator == (const Venue& newvenue);
+	bool operator != (const Venue& newvenue);
+
+
+
+
+
 };

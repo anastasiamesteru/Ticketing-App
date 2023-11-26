@@ -36,7 +36,13 @@ public:
 	
 	//Operators
 
-	ostream& operator << (ostream& out, const Seat& seat);
-	istream& operator >> (istream& in, Seat& seat);
+	ostream& operator << (ostream& out, const Seat& newseat);
+	istream& operator >> (istream& in, Seat& newseat);
+
+	explicit operator string();
+
+	bool operator == (const Seat& newseat);
+	bool operator != (const Seat& newseat);
+
 
 }

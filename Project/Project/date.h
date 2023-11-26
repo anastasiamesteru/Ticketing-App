@@ -25,7 +25,7 @@ private:
 	unsigned int minutes = 0;
 	unsigned int hour = 0;
 	unsigned int day = 0;
-	Month Month = Month :: JANUARY;
+	Month Month = Month::JANUARY;
 	unsigned int year = 2010;
 
 	static const int max_year = 2050;
@@ -37,7 +37,7 @@ private:
 	void setDay(unsigned int day);
 	void setMonth(Month month);
 	void setYear(unsigned int year);
-	
+
 public:
 
 	// Getters
@@ -53,11 +53,53 @@ public:
 
 	Date(); // default constructor
 	Date(unsigned int minutes, unsigned int hour, unsigned int day, Month month, unsigned int year); // constructor with parameters
-	
+
 	//Operators
 
-	ostream& operator << (ostream& out, const Date& date);
-	istream& operator >> (istream& in, Date& date);
+	ostream& operator << (ostream& out, const Date& newdate);
+	istream& operator >> (istream& in, Date& newdate);
+
+	explicit operator string();
+
+	bool operator == (const Date& newdate);
+	bool operator != (const Date& newdate);
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
