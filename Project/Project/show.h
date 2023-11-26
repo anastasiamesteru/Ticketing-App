@@ -1,7 +1,11 @@
 #pragma once
 #include <iostream>
 #include <string>
-#include <date.h>
+#include <ostream>
+#include <istream>
+#include <sstream>
+
+using namespace std;
 
 class Show
 
@@ -9,31 +13,30 @@ class Show
 private:
 	unsigned int shownumber = 0;
 	char* name = nullptr;
-	Date* starttime = nullptr;
 	unsigned int duration = 0;
+	char* date = nullptr; // dd/mm/yyyy
 
 
 	// Setters
 
-	void setShownumber(unsigned int shownumber);
-	char* setName(const char* name);
-	void setStartTime(Date* starttime);
+	void setShowNumber(unsigned int shownumber);
+	void setName(const char* name);
 	void setDuration(unsigned int duration);
-
+	void setDate(const char* date);
 
 public:
 
 	//Getters
 
 	int getShowNumber();
-	int getName();
-	Date* getStartTime();
+	char* getName();
 	int getDuration();
+	char* getDate();
 
 	//Constructors
 
 	Show(); //default constructor
-	Show(unsigned int shownumber, const char* name, Date* starttime, unsigned int duration) //constructor with parameters
+	Show(unsigned int shownumber, const char* name, unsigned int duration, const char* date);//constructor with parameters
 	Show(const Show& newShow); //copy constructor
 
 	//Destructor
@@ -41,13 +44,12 @@ public:
 
 	//Operators
 
-	ostream& operator << (ostream& out, const Show& newshow);
-	istream& operator >> (istream& in, Show& newshow);
+	friend ostream& operator << (ostream& out, const Show& newshow);
+	friend istream& operator >> (istream& in, Show& newshow);
 
 	Show operator = (const Show& newshow);
-
-	explicit operator string();
 
 	bool operator == (const Show& newshow);
 	bool operator != (const Show& newshow);
 };
+

@@ -1,10 +1,11 @@
-#include<deepcopy.h>
+#include "deepcopy.h"
+#pragma once
 
-
-char* DeepCopy::DeepCopy(const char* text)
+char* DeepCpy::DeepCopy(const char* text)
 {
-	if (text = nullptr) { return nulptr; }
-	char* newtext = new char[strlen(text) + 1];
+	if (text == nullptr)  throw  "Util::deepCopy receives null pointer";
+	static char* newtext = new char[strlen(text) + 1];
 	strcpy_s(newtext, strlen(text) + 1, text);
 	return newtext;
 }
+

@@ -1,16 +1,20 @@
 #pragma once
 #include <iostream>
+#include <sstream>
+#include <ostream>
+#include <istream>
+
 using namespace std;
 
-enum class SeatType {FREE, RESERVED};
-enum class SeatType2 {NORMAL,VIP};
+enum class SeatType { FREE, RESERVED };
+enum class SeatType2 { NORMAL, VIP };
 
 class Seat
 {
 private:
 	unsigned int SeatNumber = 0;
 	SeatType type = SeatType::FREE;
-	SeatType2 type2 = SeatType::NORMAL;
+	SeatType2 type2 = SeatType2::NORMAL;
 	static unsigned TotalSeats;
 
 
@@ -19,7 +23,7 @@ private:
 	void setSeatNumber(unsigned int SeatNumber);
 	void setType(SeatType);
 	void setType2(SeatType2);
-	
+
 
 public:
 
@@ -33,16 +37,15 @@ public:
 
 	Seat(); // default constructor
 	Seat(unsigned int SeatNumber, SeatType type, SeatType2 type2); //    Constructor with 3 parameters
-	
+
 	//Operators
 
-	ostream& operator << (ostream& out, const Seat& newseat);
-	istream& operator >> (istream& in, Seat& newseat);
-
-	explicit operator string();
+	friend ostream& operator << (ostream& out, const Seat& newseat);
+	friend istream& operator >> (istream& in, Seat& newseat);
 
 	bool operator == (const Seat& newseat);
 	bool operator != (const Seat& newseat);
 
 
-}
+};
+

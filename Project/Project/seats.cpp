@@ -1,9 +1,9 @@
-#include<seats.h>
+#include "seats.h"
 
 //Setters
 
 
-void setSeatNumber(unsigned int SeatNumber)
+void Seat::setSeatNumber(unsigned int SeatNumber)
 {
 	if (SeatNumber != 0) this->SeatNumber;
 	else throw;
@@ -12,14 +12,14 @@ void setSeatNumber(unsigned int SeatNumber)
 void Seat::setType(SeatType newtype)
 
 {
-	if (newtype > 2 || newtype < 0) this->type = SeatType::FREE;
+	if ((int)newtype > 2 || (int)newtype < 0) this->type = SeatType::FREE;
 	else this->type = newtype;
 }
 
 void Seat::setType2(SeatType2 newtype2)
 {
-	if (newtype2 > 2 || newtype < 0) this->type2 = SeatType2::NORMAL;
-	else this->type = newtype2;
+	if ((int)newtype2 > 2 || (int)newtype2 < 0) this->type2 = SeatType2::NORMAL;
+	else this->type2 = newtype2;
 }
 
 
@@ -46,7 +46,7 @@ Seat::Seat() { }
 
 
 
-Seat::Seat(unsigned int SeatNumber, SeatType type, SeatType type, SeatType2 type2)
+Seat::Seat(unsigned int SeatNumber, SeatType type, SeatType2 type2)
 {
 	this->setSeatNumber(SeatNumber);
 	this->setType(type);
@@ -57,25 +57,20 @@ Seat::Seat(unsigned int SeatNumber, SeatType type, SeatType type, SeatType2 type
 
 ostream& operator <<(ostream& out, const Seat& newseat)
 {
-	out << "The seat with the number is:" << newseat.SeatNumber << "is a " << newseat.type << "and " << newseat.type2 << "seat";
+	out << "The seat with the number is:" << newseat.SeatNumber << "is a " << (int)newseat.type << "and " << (int)newseat.type2 << "seat";
 	return out;
 }
-istream& operator >> (istream& in, Seat& seat);
+
+istream& operator >> (istream& in, Seat& newseat)
 {
-	in >> newseat.SeatNumber >> newseat.type >> newseat.type2;
+	//in >> newseat.SeatNumber >> newseat.type >> newseat.type2;
 	return in;
 }
 
-Seat::operator string()
-{
-	stringstream ss;
-	ss<< "The seat with the number is:" << newseat.SeatNumber << "is a " << newseat.type << "and " << newseat.type2 << "seat";
-	return ss.str();
-}
 
 bool Seat::operator==(const Seat& newseat)
 {
-	if (this == newseat) return true;
+	if (this == &newseat) return true;
 	if (this->SeatNumber != newseat.SeatNumber) return false;
 	if (this->type != newseat.type) return false;
 	if (this->type2 != newseat.type2) return false;

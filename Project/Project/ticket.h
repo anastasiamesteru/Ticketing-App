@@ -1,6 +1,10 @@
 #pragma once
 #include <iostream>
-#include <show.h>
+#include <sstream>
+#include <ostream>
+#include <istream>
+#include "show.h"
+
 using namespace std;
 
 enum class TicketType { NORMAL, VIP };
@@ -15,8 +19,8 @@ private:
 	Show* show;
 	TicketType type = TicketType::NORMAL;
 	TicketPayMethod paymethod = TicketPayMethod::CASH;
-		
-		static char* randomnumber();
+
+	static char* randomnumber();
 
 	// Setters
 	void setShow(Show* show);
@@ -27,7 +31,7 @@ private:
 
 
 
-public: 
+public:
 
 	// Getters
 	Show* getShow();
@@ -39,26 +43,23 @@ public:
 	//Constructors
 
 	Ticket(); //default constructor
-	Ticket(Show* show,unsigned int ticketnumber,float ticketprice, TicketType type, TicketPayMethod paymethod ); //constructor with parameters
+	Ticket(Show* show, unsigned int ticketnumber, float ticketprice, TicketType type, TicketPayMethod paymethod); //constructor with parameters
 	Ticket(const Ticket& newTicket); //copy constructor
 
 	//Destructor
 	~Ticket();
 
+
 	//Operators
 
-	ostream& operator << (ostream& out, const Ticket& newticket);
-	istream& operator >> (istream& in, Ticket& newticket);
+	friend ostream& operator << (ostream& out, const Ticket& newticket);
+	friend istream& operator >> (istream& in, Ticket& newticket);
 
 	Ticket operator = (const Ticket& newticket);
 
-	explicit operator string();
-
 	bool operator == (const Ticket& newticket);
 	bool operator != (const Ticket& newticket);
-}
-
-
+};
 
 
 

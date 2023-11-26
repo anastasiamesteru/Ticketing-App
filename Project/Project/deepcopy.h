@@ -1,11 +1,14 @@
 #pragma once
 #include <iostream>
 #include<string>
+
 using namespace std;
 
-class DeepCopy
+class DeepCpy
 {
 public:
+
 	static char* DeepCopy(const char* text);
-	
+
+
 };

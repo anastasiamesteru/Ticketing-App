@@ -1,49 +1,54 @@
 #include "ticket.h"
 
 //Setters
-
+/*
 char* Ticket::randomnumber()
 {
 	char* number = new char[9];
 	for (i = 0; i < 8; i++) number[i] = srand();
 	return number;
 }
+*/
 
-void Ticket::setShow(Show* show)
+void setShow(Show* show)
 {
-	if(Show=nullptr)
+	//if (show != nullptr) this->show= new Show(*show);
+	//else throw;
 
 }
 
 void Ticket::setTicketNumber(unsigned int ticketnumber)
 {
-	if (ticketnumber != 0) return this->ticketnumber;
+	if (ticketnumber != 0) this->ticketnumber = ticketnumber;
 	else throw;
 }
 
 void Ticket::setTicketPrice(float ticketprice)
 {
-	if (ticketprice > 0) return this->ticketprice;
+	if (ticketprice > 0) this->ticketprice = ticketprice;
 	else throw;
 }
 
-void Ticket::setTicketType(TicketType)
+void Ticket::setTicketType(TicketType newtype)
 {
-	if (newtype > 2 || newtype < 0) this->type = TicketType::NORMAL;
+	if ((int)newtype > 2 || (int)newtype < 0) this->type = TicketType::NORMAL;
 	else this->type = newtype;
 }
 
-void Ticket::setTicketPayMethod(TicketPayMethod)
+
+void Ticket::setTicketPayMethod(TicketPayMethod newpaymethod)
 {
-	if (newtype > 2 || newtype < 0) this->type = TicketPayMethod::CASH;
-	else this->type = newtype;
+	if ((int)newpaymethod > 2 || (int)newpaymethod < 0) this->paymethod = TicketPayMethod::CASH;
+	else this->paymethod = newpaymethod;
 }
 
 
 //Getters
+
 Show* Ticket::getShow()
 {
-	Show* newtext = new Show*(this->Show);
+	Show* newtext = new Show(*this->show);
+	return newtext;
 }
 
 int Ticket::getTicketNumber()
@@ -90,22 +95,19 @@ Ticket::Ticket(const Ticket& newTicket)
 	this->setTicketPayMethod(newTicket.paymethod);
 }
 
-Ticket::~Ticket()
-{
-	delete[] Show this->Show = nullptr;
-}
 
 //Operators
 
-ostream& Ticket::operator<<(ostream& out, const Ticket& newticket)
+ostream& operator<<(ostream& out, const Ticket& newticket)
 {
-	out << "The show is" << newticket.show << ">The ticket's number is" << newticket.ticketnumber << "with a price of" << newticket.ticketprice << "of type" << newticket.type << "paid with" << newticket.paymethod;
+	//out << "The show is" << newticket.show << ">The ticket's number is" << newticket.ticketnumber << "with a price of" << newticket.ticketprice << "of type" << newticket.type << "paid with" << newticket.paymethod;
 	return out;
 }
 
-istream& Ticket::operator>>(istream& in, Ticket& ticket)
+istream& operator>>(istream& in, Ticket& newticket)
 {
-	in >> newticket.show >> newticket.ticketnumber >> newticket.ticketprice >> newticket.type >> newticket.paymethod;
+	//in >> newticket.show >> newticket.ticketnumber >> newticket.ticketprice >> newticket.type >> newticket.paymethod;
+
 	return in;
 }
 
@@ -119,16 +121,10 @@ Ticket Ticket::operator=(const Ticket& newticket)
 	return *this;
 }
 
-Ticket::operator string()
-{
-	stringstream ss;
-	ss<< "The show is" << newticket.show << ">The ticket's number is" << newticket.ticketnumber << "with a price of" << newticket.ticketprice << "of type" << newticket.type << "paid with" << newticket.paymethod;
-	return ss.str();
-}
 
 bool Ticket::operator==(const Ticket& newticket)
 {
-	if (this == newticket) return true;
+	if (this == &newticket) return true;
 	if (this->ticketnumber != newticket.ticketnumber) return false;
 	if (this->ticketprice != newticket.ticketprice) return false;
 	if (this->show != newticket.show) return false;
@@ -141,5 +137,7 @@ bool Ticket::operator!=(const Ticket& newticket)
 {
 	return !(*this == newticket);
 }
+
+
 
 

@@ -1,27 +1,21 @@
 #include "show.h"
-#include<deepcopy.h>
+#include "deepcopy.h"
 
 
 //Setters
 
-void Show::setShowNumber(unsigned int eventnumnber)
+void Show::setShowNumber(unsigned int shownumber)
 {
-	if (eventnumnber > 0) this->eventnumnber = eventnumnber;
+	if (shownumber > 0) this->shownumber = shownumber;
 	else throw;
 }
 
-char* Show::setName(const char* name)
+void Show::setName(const char* name)
 {
-	if (strlen(name) > 1) this->name = DeepCopy::DeepCopy(name);
+	if (strlen(name) > 1) this->name = DeepCpy::DeepCopy(name);
 	else throw;
 }
 
-void Show::setStartTime(Date* starttime)
-{
-	if (starttime != 0) this->starttime = Date* (starttime);
-	else throw;
-
-}
 
 void Show::setDuration(unsigned int duration)
 {
@@ -29,96 +23,94 @@ void Show::setDuration(unsigned int duration)
 	else throw;
 }
 
+void Show::setDate(const char* newdate)
+{
+	if (strlen(newdate) != 10) throw;
+	if (newdate[2] != '/' || newdate[5] != '/') throw;
+	strcpy(this->date, newdate);
+}
+
 //Getters
 
 int Show::getShowNumber()
 {
-	return this->eventnumnber;
+	return this->shownumber;
 }
 
-int Show::getName()
+char* Show::getName()
 {
-	return DeepCopy::DeepCopy(this->name);
-}
-
-Date* Show::getStartTime()
-{
-	Date* newtext = new Date(this->starttime);
-	return newtext;
+	return DeepCpy::DeepCopy(this->name);
 }
 
 int Show::getDuration()
 {
 	return this->duration;
 }
+char* Show::getDate()
+{
+	return DeepCpy::DeepCopy(this->date);
 
+}
 //Constructors
 
 Show::Show() { }
 
-Show::Show(unsigned int shownumber, const char* name, Date* starttime, unsigned int duration)
+Show::Show(unsigned int shownumber, const char* name, unsigned int duration, const char* date)
 {
-	this->setShownumber(shownumber);
+	this->setShowNumber(shownumber);
 	this->setName(name);
-	this->setStartTime(starttime);
+	this->setDate(date);
 	this->setDuration(duration);
 
 }
 
 Show::Show(const Show& newShow)
-{	
-	this->setShownumber(newShow.shownumber);
+{
+	this->setShowNumber(newShow.shownumber);
 	this->setName(newShow.name);
-	this->setStartTime(newShow.starttime);
+	this->setDate(newShow.date);
 	this->setDuration(newShow.duration);
 
-	
+
 }
 
 Show::~Show()
 {
-	delete[] name this->name = nullptr;
+	delete[] this->name;
 }
 
 //Operators
 
 
-ostream& Show::operator<<(ostream& out, const Show& newshow)
+ostream& operator<<(ostream& out, const Show& newshow)
 {
-	out << "The show with the number" << newshow.shownumber << "and with the name" << newshow.name << "starts at" << newshow.starttime << "and has a duration of" << newshow.duration;
+	out << "The show with the number" << newshow.shownumber << "and with the name" << newshow.name << "starts at" << newshow.date << "and has a duration of" << newshow.duration;
 	return out;
 }
 
-istream& Show::operator>>(istream& in, Show& newshow)
+istream& operator>>(istream& in, Show& newshow)
 {
-	in >> newshow.shownumber << newshow.name << newshow.starttime << newshow.duration;
+	in >> newshow.shownumber >> newshow.name >> newshow.date >> newshow.duration;
 	return in;
 }
 
 Show Show::operator=(const Show& newshow)
 {
 
-	this->setShownumber(newshow.shownumber);
+	this->setShowNumber(newshow.shownumber);
 	this->setName(newshow.name);
-	this->setStartTime(newshow.starttime);
+	this->setDate(newshow.date);
 	this->setDuration(newshow.duration);
 	return *this;
 }
 
-Show::operator string()
-{
-	stringstream ss;
-	ss<< "The show with the number" << newshow.shownumber << "and with the name" << newshow.name << "starts at" << newshow.starttime << "and has a duration of" << newshow.duration;
-	return ss.str();
-}
-
 bool Show::operator==(const Show& newshow)
 {
-	if (this == newshow) return true; 
+	if (this == &newshow) return true;
 	if (this->shownumber != newshow.shownumber) return false;
-	if (strcmp(this->name, newshow.shownumber) != 0) return false;
-	if (this->starttime != newshow.starttime) return false;
-	if (this->duration != newshow.duration) return false;
+	if (strcmp(this->name, newshow.name) != 0) return false;
+	if (strcmp(this->date, newshow.date) != 0)
+		if (this->duration != newshow.duration) return false;
 	return true;
 }
 
