@@ -49,6 +49,11 @@ public:
 	//Destructor
 	~Ticket();
 
+	friend ostream& operator << (ostream& out, const TicketType& type);
+	friend istream& operator >> (istream& in, TicketType& type);
+
+	friend ostream& operator << (ostream& out, const TicketPayMethod& paymethod);
+	friend istream& operator >> (istream& in, TicketPayMethod& paymethod);
 
 	//Operators
 

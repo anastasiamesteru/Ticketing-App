@@ -38,6 +38,14 @@ public:
 	Seat(); // default constructor
 	Seat(unsigned int SeatNumber, SeatType type, SeatType2 type2); //    Constructor with 3 parameters
 
+	//Seat type operators
+
+	friend ostream& operator << (std::ostream& out, const SeatType& type);
+	friend istream& operator >> (std::istream& in, SeatType& type);
+
+	friend ostream& operator << (std::ostream& out, const SeatType2& type2);
+	friend istream& operator >> (std::istream& in, SeatType2& type2);
+
 	//Operators
 
 	friend ostream& operator << (ostream& out, const Seat& newseat);

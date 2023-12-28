@@ -95,18 +95,47 @@ Ticket::Ticket(const Ticket& newTicket)
 	this->setTicketPayMethod(newTicket.paymethod);
 }
 
+//Ticket type operators
+
+ostream& operator<<(ostream& out, const TicketType& type)
+{
+	switch (type)
+	{
+	case TicketType::NORMAL:
+		out << "Normal"; break;
+	case TicketType::VIP:
+		out << "VIP"; break;
+	default:
+		out << "unknown";
+	}
+	return out;
+}
+
+ostream& operator<<(ostream& out, const TicketPayMethod& paymethod)
+{
+	switch (paymethod)
+	{
+	case TicketPayMethod::CASH:
+		out << "cash"; break;
+	case TicketPayMethod::CARD:
+		out << "card"; break;
+	default:
+		out << "unknown";
+	}
+	return out;
+}
 
 //Operators
 
 ostream& operator<<(ostream& out, const Ticket& newticket)
 {
-	//out << "The show is" << newticket.show << ">The ticket's number is" << newticket.ticketnumber << "with a price of" << newticket.ticketprice << "of type" << newticket.type << "paid with" << newticket.paymethod;
+	out << "The show is" << newticket.show << ">The ticket's number is" << newticket.ticketnumber << "with a price of" << newticket.ticketprice << "of type" << newticket.type << "paid with" << newticket.paymethod;
 	return out;
 }
 
 istream& operator>>(istream& in, Ticket& newticket)
 {
-	//in >> newticket.show >> newticket.ticketnumber >> newticket.ticketprice >> newticket.type >> newticket.paymethod;
+	in >> newticket.show >> newticket.ticketnumber >> newticket.ticketprice >> newticket.type >> newticket.paymethod;
 
 	return in;
 }

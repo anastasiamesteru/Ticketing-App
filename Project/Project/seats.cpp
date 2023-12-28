@@ -44,13 +44,41 @@ SeatType2 Seat::getSeatType2()
 
 Seat::Seat() { }
 
-
-
 Seat::Seat(unsigned int SeatNumber, SeatType type, SeatType2 type2)
 {
 	this->setSeatNumber(SeatNumber);
 	this->setType(type);
 	this->setType2(type2);
+}
+
+//Seat type operators 
+
+ostream& operator<<(std::ostream& out, const SeatType& type)
+{
+	switch (type)
+	{
+	case SeatType::FREE:
+		out << "free"; break;
+	case SeatType::RESERVED:
+		out << "reserved"; break;
+	default:
+		out << "unknown";
+	}
+	return out;
+}
+
+ostream& operator<<(std::ostream& out, const SeatType2& type2)
+{
+	switch (type2)
+	{
+	case SeatType2::NORMAL:
+		out << "normal"; break;
+	case SeatType2::VIP:
+		out << "VIP"; break;
+	default:
+		out << "unknown";
+	}
+	return out;
 }
 
 //Operators
