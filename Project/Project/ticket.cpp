@@ -110,7 +110,21 @@ ostream& operator<<(ostream& out, const TicketType& type)
 	}
 	return out;
 }
+istream& operator<<(istream& in, TicketType& type)
+{
 
+	TicketType type;
+	switch (type)
+	{
+	case TicketType::NORMAL:
+		out << "Normal"; break;
+	case TicketType::VIP:
+		out << "VIP"; break;
+	default:
+		out << "unknown";
+	}
+
+}
 ostream& operator<<(ostream& out, const TicketPayMethod& paymethod)
 {
 	switch (paymethod)
