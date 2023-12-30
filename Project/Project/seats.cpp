@@ -67,6 +67,23 @@ ostream& operator<<(std::ostream& out, const SeatType& type)
 	return out;
 }
 
+istream& operator>>(istream& in, SeatType& type)
+{
+	string type;
+	in >> type;
+
+	switch (type)
+	{
+	case SeatType::FREE:
+		in >> "free"; break;
+	case SeatType::RESERVED:
+		in >> "reserved"; break;
+	default:
+		in >> "unknown";
+	}
+	return in;
+}
+
 ostream& operator<<(std::ostream& out, const SeatType2& type2)
 {
 	switch (type2)
@@ -81,6 +98,22 @@ ostream& operator<<(std::ostream& out, const SeatType2& type2)
 	return out;
 }
 
+istream& operator>>(istream& in, SeatType2& type2)
+{
+	string type2;
+	in >> type2;
+
+	switch (type2)
+	{
+	case SeatType2::NORMAL:
+		in >> "normal"; break;
+	case SeatType2::VIP:
+		in >> "VIP"; break;
+	default:
+		in >> "unknown";
+	}
+	return in;
+}
 //Operators
 
 ostream& operator <<(ostream& out, const Seat& newseat)

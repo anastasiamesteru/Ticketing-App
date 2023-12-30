@@ -46,9 +46,9 @@ public:
 	Ticket(Show* show, unsigned int ticketnumber, float ticketprice, TicketType type, TicketPayMethod paymethod); //constructor with parameters
 	Ticket(const Ticket& newTicket); //copy constructor
 
-	//Destructor
-	~Ticket();
+	~Ticket();	//Destructor
 
+	//Ticket type operators
 	friend ostream& operator << (ostream& out, const TicketType& type);
 	friend istream& operator >> (istream& in, TicketType& type);
 
