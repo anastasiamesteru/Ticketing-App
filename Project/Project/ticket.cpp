@@ -113,19 +113,17 @@ ostream& operator<<(ostream& out, const TicketType& type)
 
 istream& operator>>(istream& in, TicketType& type)
 {
-	string type;
-	in >> type;
-
-	switch (type)
+	int i = 0;
+	if (!(in >> i) || i > 2)
 	{
-	case TicketType::NORMAL:
-		in >> "Normal"; break;
-	case TicketType::VIP:
-		in >> "VIP"; break;
-	default:
-		in >> "unknown";
+		type = TicketType::NORMAL;
+		return in;
 	}
-	return in;
+	else
+	{
+		type = TicketType::VIP;
+		return in;
+	}
 }
 
 ostream& operator<<(ostream& out, const TicketPayMethod& paymethod)
@@ -144,19 +142,17 @@ ostream& operator<<(ostream& out, const TicketPayMethod& paymethod)
 
 istream& operator>>(istream& in, TicketPayMethod& paymethod)
 {
-	string paymethod;
-	in >> paymethod;
-
-	switch (paymethod)
+	int i = 0;
+	if (!(in >> i) || i > 2)
 	{
-	case TicketPayMethod::CASH:
-		in >> "cash"; break;
-	case TicketPayMethod::CARD:
-		in >> "card"; break;
-	default:
-		in >> "unknown";
+		paymethod = TicketPayMethod::CASH;
+		return in;
 	}
-	return in;
+	else
+	{
+		paymethod = TicketPayMethod::CARD;
+		return in;
+	}
 }
 
 //Operators
