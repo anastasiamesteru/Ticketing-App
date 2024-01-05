@@ -27,7 +27,7 @@ void Show::setDate(const char* newdate)
 {
 	if (strlen(newdate) != 10) throw;
 	if (newdate[2] != '/' || newdate[5] != '/') throw;
-	strcpy(this->date, newdate);
+	strcpy_s(this->date, strlen(newdate) + 1, newdate);
 }
 
 //Getters

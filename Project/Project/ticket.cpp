@@ -10,11 +10,10 @@ char* Ticket::randomnumber()
 }
 */
 
-void setShow(Show* show)
+void Ticket::setShow(Show* show)
 {
-	//if (show != nullptr) this->show= new Show(*show);
-	//else throw;
-
+	if (show != nullptr) this->show = new Show(*show);
+	else throw;
 }
 
 void Ticket::setTicketNumber(unsigned int ticketnumber)
