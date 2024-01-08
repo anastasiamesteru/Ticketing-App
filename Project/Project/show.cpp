@@ -1,6 +1,7 @@
 #include "show.h"
 #include "deepcopy.h"
 
+unsigned int Show::total_shows = 0;
 
 //Setters
 
@@ -61,7 +62,7 @@ Show::Show(unsigned int shownumber, const char* name, unsigned int duration, con
 	this->setName(name);
 	this->setDate(date);
 	this->setDuration(duration);
-
+	++total_shows;
 }
 
 Show::Show(const Show& newShow)
@@ -70,13 +71,14 @@ Show::Show(const Show& newShow)
 	this->setName(newShow.name);
 	this->setDate(newShow.date);
 	this->setDuration(newShow.duration);
-
-
+	++total_shows;
 }
 
 Show::~Show()
 {
-	delete[] this->name;
+	delete[] name;
+	this->name = nullptr;
+	--total_shows;
 }
 
 //Operators

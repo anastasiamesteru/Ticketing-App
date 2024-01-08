@@ -26,6 +26,8 @@ private:
 
 public:
 
+	static unsigned int total_shows;
+
 	//Getters
 
 	int getShowNumber();
@@ -52,4 +54,19 @@ public:
 	bool operator == (const Show& newshow);
 	bool operator != (const Show& newshow);
 };
+
+//derived class
+class Drama :public Show
+{
+private:
+	string director;
+public:
+	Drama(unsigned int shownumber, const char* name, unsigned int duration, const char* date, string director) : Show(shownumber, name, duration, date)
+	{
+		this->director = director;
+	}
+};
+
+
+
 

@@ -17,6 +17,7 @@ private:
 	unsigned int totalseats = 0;
 	Show** shows = nullptr;
 	unsigned int ongoingshows = 0;
+	static unsigned int total_venues;
 
 
 	//Setters

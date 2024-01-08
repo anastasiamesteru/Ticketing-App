@@ -2,6 +2,7 @@
 #include "venue.h"
 #include "show.h"
 
+unsigned int Venue::total_venues = 0;
 
 //Setters validations
 
@@ -87,6 +88,7 @@ Venue::Venue(const char* name, const char* adress, unsigned int totalseats, Show
 	this->setTotalSeats(totalseats);
 	this->setShow(shows);
 	this->setOngoingShows(ongoingshows);
+	++total_venues;
 }
 
 Venue::Venue(const Venue& newVenue)
@@ -95,12 +97,16 @@ Venue::Venue(const Venue& newVenue)
 	this->setAdress(newVenue.adress);
 	this->setTotalSeats(newVenue.totalseats);
 	this->setOngoingShows(newVenue.ongoingshows);
+	++total_venues;
 }
 
 Venue::~Venue()
 {
-	delete[]  this->name;
-	delete[]  this->adress;
+	delete[] name;
+	this->name = nullptr;
+	delete[] adress;
+	this->adress = nullptr;
+	--total_venues;
 }
 
 //Operators
