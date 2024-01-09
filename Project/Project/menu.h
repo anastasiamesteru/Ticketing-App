@@ -2,14 +2,14 @@
 #include <fstream>
 #include <string>
 
+
 class Menu {
-private:
+public:
     void showMenu();
     void showTickets();
     void showShows();
     void showVenues();
     void showSeats();
     void buyTicket();
-public:
     void run();
 };

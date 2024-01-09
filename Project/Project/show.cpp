@@ -32,7 +32,10 @@ void Show::setDate(const char* newdate)
 }
 
 //Getters
-
+int Show::getTotalShows()
+{
+	return Show::total_shows;
+}
 int Show::getShowNumber()
 {
 	return this->shownumber;
@@ -54,7 +57,7 @@ char* Show::getDate()
 }
 //Constructors
 
-Show::Show() { }
+Show::Show() { ++total_shows; }
 
 Show::Show(unsigned int shownumber, const char* name, unsigned int duration, const char* date)
 {

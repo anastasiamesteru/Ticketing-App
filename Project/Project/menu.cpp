@@ -2,6 +2,11 @@
 #include "ticket.h"
 #include "show.h"
 #include "file.h"
+#include "venue.h"
+#include "show.cpp"
+#include "ticket.cpp"
+#include "venue.cpp"
+#include "venue.cpp"
 
 using namespace std;
 
@@ -52,11 +57,18 @@ void Menu::run() {
 void Menu::showTickets()
 {
     int choice = -1;
-    while (choice != 0) {
+    while (choice != 0)
+    {
         cout << "===============================" << endl;
         cout << "==== / Show Tickets / ====" << endl;
         cout << "===============================" << endl;
-
+        cout << "Tickets: " << Ticket::total_tickets << endl;
+        for (int i = 1; i <= Ticket::total_tickets; ++i)
+        {
+            //  cout << i << this->total_tickets[i - 1]->getTicketNumber() << endl;
+            cout << "Return" << endl;
+            cout << "> "; cin >> choice;
+        }
     }
 }
 void Menu::showShows()
@@ -66,9 +78,16 @@ void Menu::showShows()
         cout << "===============================" << endl;
         cout << "==== / Show Available Shows / ====" << endl;
         cout << "===============================" << endl;
-
+        cout << "Shows: " << Show::total_shows << endl;
+        for (int i = 1; i <= Show::total_shows; ++i)
+        {
+            //  cout << i << this->total_shows[i - 1]->getName() << endl;
+            cout << "Return" << endl;
+            cout << "> "; cin >> choice;
+        }
     }
 }
+//}
 void Menu::showVenues()
 {
     int choice = -1;
@@ -77,7 +96,13 @@ void Menu::showVenues()
         cout << "===============================" << endl;
         cout << "==== / Show Available Venues / ====" << endl;
         cout << "===============================" << endl;
-
+        // cout << "Venues: " << Venue::total_venues << endl;
+        // for (int i = 1; i <= Venue::total_venues; ++i)
+        {
+            //   cout <<  i << this->fp.venues[i - 1]->getName() << endl;
+            cout << "Return" << endl;
+            cout << "> "; cin >> choice;
+        }
     }
 }
 
@@ -88,8 +113,15 @@ void Menu::showSeats()
         cout << "===============================" << endl;
         cout << "==== / Show Available Seats / ====" << endl;
         cout << "===============================" << endl;
-
+        // cout << "Seats: " << Seat::total_seats << endl;
+        // for (int i = 1; i <= Seat::total_seats; ++i)
+        {
+            //  cout << i << this->total_seats[i - 1]->getName() << endl;
+            cout << "Return" << endl;
+            cout << "> "; cin >> choice;
+        }
     }
+
 }
 
 void Menu::buyTicket()
@@ -99,6 +131,6 @@ void Menu::buyTicket()
         cout << "===============================" << endl;
         cout << "==== / Buy Ticket / ====" << endl;
         cout << "===============================" << endl;
-
+        // ??????????????
     }
 }

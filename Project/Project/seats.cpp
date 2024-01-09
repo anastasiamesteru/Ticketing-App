@@ -1,5 +1,6 @@
 #include "seats.h"
 
+unsigned int Seat::total_seats = 0;
 //Setters
 
 
@@ -25,6 +26,11 @@ void Seat::setType2(SeatType2 newtype2)
 
 //Getters
 
+int Seat::getTotalSeats()
+{
+	return ;
+}
+
 int Seat::getSeatNumber()
 {
 	return this->SeatNumber;
@@ -42,13 +48,19 @@ SeatType2 Seat::getSeatType2()
 
 // Constructors
 
-Seat::Seat() { }
+Seat::Seat() { ++total_seats; }
 
 Seat::Seat(unsigned int SeatNumber, SeatType type, SeatType2 type2)
 {
 	this->setSeatNumber(SeatNumber);
 	this->setType(type);
 	this->setType2(type2);
+	++total_seats;
+}
+
+Seat::~Seat()
+{
+	--total_seats;
 }
 
 //Seat type operators 

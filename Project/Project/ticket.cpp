@@ -1,14 +1,8 @@
 #include "ticket.h"
 
+unsigned int Ticket::total_tickets = 0;
+
 //Setters
-/*
-char* Ticket::randomnumber()
-{
-	char* number = new char[9];
-	for (i = 0; i < 8; i++) number[i] = srand();
-	return number;
-}
-*/
 
 void Ticket::setShow(Show* show)
 {
@@ -43,7 +37,10 @@ void Ticket::setTicketPayMethod(TicketPayMethod newpaymethod)
 
 
 //Getters
-
+int Ticket::getTotalTickets()
+{
+	return Ticket::total_tickets;
+}
 Show* Ticket::getShow()
 {
 	Show* newtext = new Show(*this->show);
@@ -74,6 +71,7 @@ TicketPayMethod Ticket::getTicketPayMethod()
 
 Ticket::Ticket()
 {
+	++total_tickets;
 }
 
 Ticket::Ticket(Show* show, unsigned int ticketnumber, float ticketprice, TicketType type, TicketPayMethod paymethod)
@@ -83,6 +81,7 @@ Ticket::Ticket(Show* show, unsigned int ticketnumber, float ticketprice, TicketT
 	this->setTicketPrice(ticketprice);
 	this->setTicketType(type);
 	this->setTicketPayMethod(paymethod);
+	++total_tickets;
 }
 
 Ticket::Ticket(const Ticket& newTicket)
@@ -92,6 +91,7 @@ Ticket::Ticket(const Ticket& newTicket)
 	this->setTicketPrice(newTicket.ticketprice);
 	this->setTicketType(newTicket.type);
 	this->setTicketPayMethod(newTicket.paymethod);
+	++total_tickets;
 }
 
 //Ticket type operators

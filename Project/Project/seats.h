@@ -15,7 +15,7 @@ private:
 	unsigned int SeatNumber = 0;
 	SeatType type = SeatType::FREE;
 	SeatType2 type2 = SeatType2::NORMAL;
-	static unsigned TotalSeats;
+	static unsigned total_seats;
 
 
 	// Setters
@@ -28,7 +28,8 @@ private:
 public:
 
 	//Getters
-
+	
+	static int getTotalSeats();
 	int getSeatNumber();
 	SeatType getSeatType();
 	SeatType2  getSeatType2();
@@ -37,6 +38,7 @@ public:
 
 	Seat(); // default constructor
 	Seat(unsigned int SeatNumber, SeatType type, SeatType2 type2); //    Constructor with 3 parameters
+	~Seat();//destructor
 
 	//Seat type operators
 

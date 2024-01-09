@@ -79,7 +79,7 @@ int Venue::getOngoingShows()
 
 //Constructors
 
-Venue::Venue() { }
+Venue::Venue() { ++total_venues; }
 
 Venue::Venue(const char* name, const char* adress, unsigned int totalseats, Show** shows, unsigned int ongoingshows)
 {

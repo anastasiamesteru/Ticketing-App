@@ -20,7 +20,7 @@ private:
 	TicketType type = TicketType::NORMAL;
 	TicketPayMethod paymethod = TicketPayMethod::CASH;
 
-	static char* randomnumber();
+	static unsigned int total_tickets;
 
 	// Setters
 	void setShow(Show* show);
@@ -29,11 +29,10 @@ private:
 	void setTicketType(TicketType);
 	void setTicketPayMethod(TicketPayMethod);
 
-
-
 public:
 
 	// Getters
+	static int getTotalTickets();
 	Show* getShow();
 	int getTicketNumber();
 	float getTicketPrice();
